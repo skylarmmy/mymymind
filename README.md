@@ -1,60 +1,53 @@
-# MyMyMind — 草稿版本使用说明
+# MyMyMind
 
-这是一个用 Vite + React 搭建的项目骨架,已经包含 5 个组件,满足草稿阶段的最低要求:
+An interactive CBT (Cognitive Behavioral Therapy) self-reflection website. MyMyMind helps users understand the connection between their thoughts, emotions, and behaviors through guided reflection activities — without the cost or unstructured feel of traditional journaling.
 
-- `Navbar` — 顶部切换标签
-- `MoodTracker` — 心情记录 + 简单趋势图
-- `ThoughtJournalForm` — CBT 引导式日记表单
-- `ReflectionExercise` — 认知扭曲小测验
-- `PastEntriesList` — 历史记录查看与删除(满足"用户能修改网站内容"这条要求,存在 localStorage)
+Built for CS571: Building User Interfaces, University of Wisconsin–Madison.
 
-## 到家后要做的事(按顺序)
+## Overview
 
-### 1. 解压并安装依赖
+Traditional self-reflection methods like journaling can feel unstructured and hard to maintain, and therapy isn't accessible or affordable for everyone. MyMyMind offers a structured, guided alternative inspired by CBT techniques, letting users track their mood, work through a thought journal, and practice recognizing cognitive distortions through interactive exercises.
+
+MyMyMind is designed as a self-reflection tool, not a replacement for professional mental health care.
+
+## Features
+
+- **Mood Tracker** — Log a daily mood on a 5-point scale with an optional note, and view a simple bar chart of the last 7 entries.
+- **Thought Journal** — A step-by-step guided form based on the CBT process: situation → thought → emotion → alternative perspective.
+- **Reflection Exercises** — Interactive scenarios that help users identify common cognitive distortions (e.g. catastrophizing, overgeneralization, mind reading).
+- **History** — View and delete past mood and journal entries.
+
+## Tech Stack
+
+- React (Vite)
+- Data persistence via `localStorage` (no backend for this milestone)
+
+## Components
+
+- `Navbar` — switches between the four main views
+- `MoodTracker` — mood logging and trend chart
+- `ThoughtJournalForm` — guided multi-step CBT journal entry
+- `ReflectionExercise` — cognitive distortion quiz
+- `PastEntriesList` — history view with delete functionality
+
+## Getting Started
+
 ```bash
-cd mymymind-draft
 npm install
-```
-
-### 2. 本地跑起来看看
-```bash
 npm run dev
 ```
-浏览器打开终端提示的地址(通常是 http://localhost:5173),四个标签都点一遍,确认没有报错。
 
-### 3. 推到 GitHub
-如果还没建仓库:
+Then open the local URL shown in the terminal (typically `http://localhost:5173`).
+
+## Build & Deploy
+
 ```bash
-git init
-git add .
-git commit -m "Draft website: 5 components, mood tracker, CBT journal, reflection exercise"
-git branch -M main
-git remote add origin https://github.com/<你的用户名>/<你的仓库名>.git
-git push -u origin main
-```
-
-### 4. 修改两个地方的仓库名(必须做,否则部署后是白屏)
-- `vite.config.js` 里的 `base: '/your-repo-name/'` → 改成你的真实仓库名
-- `package.json` 里的 `homepage` → 改成你的真实 GitHub Pages 地址
-
-### 5. 安装部署工具并部署
-```bash
-npm install --save-dev gh-pages
+npm run build
 npm run deploy
 ```
-这一步会自动 build 并把 `dist` 文件夹推到 `gh-pages` 分支。
 
-### 6. 打开 GitHub 仓库设置确认 Pages
-Settings → Pages → Source 选择 `gh-pages` 分支 → 保存。等 1-2 分钟后访问 `https://<你的用户名>.github.io/<你的仓库名>/`。
+The site deploys to GitHub Pages via the `gh-pages` package. Before deploying, make sure `base` in `vite.config.js` and `homepage` in `package.json` match your actual repository name.
 
-## 对照 rubric 自查
-- [ ] React app 已 push 到 GitHub(0.5分)
-- [ ] build 后能通过网页访问(1分)—— 第 6 步没做经常导致 0 分,别漏
-- [ ] 至少 5 个组件且有意义地使用(0.5分)—— 已满足,若删减组件注意分数会扣
-- [ ] 用户能修改网站(记录心情/日记/删除历史都算)
+## Status
 
-## 时间紧张时可以先跳过的
-- 样式细节(目前的莫兰迪绿灰配色已经够用,草稿阶段不评审美)
-- ReflectionExercise 的题目数量(目前 3 道,够用)
-
-祝顺利,13点前提交没问题的话记得留 20-30 分钟 buffer 处理 GitHub Pages 第一次部署常见的白屏/404 问题。
+This is the draft milestone submission. Planned for the final version: expanded exercise library, mood trend insights over longer time ranges, and refined visual design.
