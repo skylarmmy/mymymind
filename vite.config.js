@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 // If your repo is https://github.com/yourname/mymymind, base should be '/mymymind/'
 export default defineConfig({
   plugins: [react()],
-  base: '/your-repo-name/',
+  base: '/mymymind/',
 })
